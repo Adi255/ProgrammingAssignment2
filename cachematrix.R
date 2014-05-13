@@ -1,10 +1,11 @@
-## Pair of functions to first create a list containing 
-## a matrix that can also store it's inverse, and a
-## second function to create and then return the cached
-## inverse matrix when present
+## Pair of functions to first create a list of functions
+## to 'get' and 'set' a matrix and it's inverse, and a second 
+## function to solve for the inverse or return the cached inverse 
+## matrix when present
 
-## This function creates a special list to contain
-## and return a matrix and it's own cached inverse
+## This function creates a list with getters and setters
+## for a matrix 'x' and it's inverse. 'x' must be a square
+## invertible matrix
 makeCacheMatrix <- function(x = matrix()) {
 	inv <- NULL
 	set <- function(y) {
@@ -28,8 +29,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Return a matrix that is the inverse of that contained in 'x$get()',
-## using a cached version if it is present
+## Return a matrix that is the inverse of that contained 
+## in 'x$get()', using a cached version if it is present
 cacheSolve <- function(x, ...) {
 	inv <- x$getInv();
 	if(!is.null(inv)){
